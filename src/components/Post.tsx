@@ -1,8 +1,10 @@
-function Post() {
+import { PostProps } from "../types";
+
+function Post({ title, text }: PostProps) {
   return (
     <div>
-      <h3>Post Title</h3>
-      <p>Post Body</p>
+      <h3 className="text-lg">{title}</h3>
+      <p>{text}</p>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
-// import Post from "./Post";
+import Post from "./Post";
+import { PostProps } from "../types";
 
 function Posts() {
   const apiUrl: string = import.meta.env.VITE_API_URL;
@@ -19,9 +20,12 @@ function Posts() {
 
   let postList;
   if (isLoading) {
-    postList = "Loading...";
+    postList = "Posts loading...";
   } else {
-    postList = "Loaded";
+    console.log(posts);
+    postList = posts.map((post: PostProps) => {
+      return <Post title={post.title} text={post.text} key={post._id} />;
+    });
   }
 
   return (
