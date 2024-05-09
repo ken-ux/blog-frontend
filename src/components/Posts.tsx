@@ -7,6 +7,7 @@ function Posts() {
   const apiUrl: string = import.meta.env.VITE_API_URL;
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortDescending, setSortDescending] = useState(true);
 
   useEffect(() => {
     async function getPosts() {
@@ -22,17 +23,39 @@ function Posts() {
   if (isLoading) {
     postList = "Posts loading...";
   } else {
-    console.log(posts);
     postList = posts.map((post: PostProps) => {
-      return <Post title={post.title} text={post.text} key={post._id} />;
+      if (!post.published) {
+        return;
+      }
+      return (
+        <Post
+          key={post._id}
+          title={post.title}
+          text={post.text}
+          timestamp={post.timestamp}
+        />
+      );
     });
   }
+
+  const clickHandler = () => {
+    const newPosts = posts;
+    newPosts.sort((a: PostProps, b: PostProps) =>
+      sortDescending
+        ? new Date(b.timestamp).valueOf() - new Date(a.timestamp).valueOf()
+        : new Date(a.timestamp).valueOf() - new Date(b.timestamp).valueOf()
+    );
+    setSortDescending(!sortDescending);
+    setPosts(newPosts);
+  };
 
   return (
     <>
       <h2 className="text-xl">Posts</h2>
-      <p>Sort</p>
-      <div>{postList}</div>
+      <button type="button" onClick={clickHandler}>
+        {sortDescending ? "Sort v" : "Sort ^"}
+      </button>
+      <div className="flex flex-col gap-4">{postList}</div>
     </>
   );
 }
