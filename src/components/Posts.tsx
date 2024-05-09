@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Post from "./Post";
 import { PostProps } from "../types";
+const apiUrl: string = import.meta.env.VITE_API_URL;
 
 function Posts() {
-  const apiUrl: string = import.meta.env.VITE_API_URL;
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortDescending, setSortDescending] = useState(true);
@@ -17,12 +17,13 @@ function Posts() {
       setIsLoading(false);
     }
     getPosts();
-  }, [apiUrl]);
+  }, []);
 
   let postList;
   if (isLoading) {
     postList = "Posts loading...";
   } else {
+    console.log(posts);
     postList = posts.map((post: PostProps) => {
       if (!post.published) {
         return;
