@@ -42,8 +42,8 @@ function Posts() {
     const newPosts = posts;
     newPosts.sort((a: PostProps, b: PostProps) =>
       sortDescending
-        ? new Date(b.timestamp).valueOf() - new Date(a.timestamp).valueOf()
-        : new Date(a.timestamp).valueOf() - new Date(b.timestamp).valueOf(),
+        ? new Date(a.timestamp).valueOf() - new Date(b.timestamp).valueOf()
+        : new Date(b.timestamp).valueOf() - new Date(a.timestamp).valueOf(),
     );
     setSortDescending(!sortDescending);
     setPosts(newPosts);
