@@ -3,7 +3,7 @@ import Posts from "./components/Posts";
 
 function App() {
   return (
-    <div className="grid grid-cols-8 my-16">
+    <div className="my-16 grid grid-cols-8">
       <Navbar />
       <div className="col-span-6 p-8">
         <div className="mb-8 flex flex-col gap-2">

@@ -43,7 +43,7 @@ function Posts() {
     newPosts.sort((a: PostProps, b: PostProps) =>
       sortDescending
         ? new Date(b.timestamp).valueOf() - new Date(a.timestamp).valueOf()
-        : new Date(a.timestamp).valueOf() - new Date(b.timestamp).valueOf()
+        : new Date(a.timestamp).valueOf() - new Date(b.timestamp).valueOf(),
     );
     setSortDescending(!sortDescending);
     setPosts(newPosts);
@@ -51,11 +51,11 @@ function Posts() {
 
   return (
     <>
-      <div className="flex gap-4 items-center mb-2">
+      <div className="mb-2 flex items-center gap-4">
         <h2 className="text-2xl">Posts</h2>
         <button
           type="button"
-          className="bg-sky-500 text-slate-50 py-1 px-3 rounded-full text-sm"
+          className="rounded-full bg-sky-500 px-3 py-1 text-sm text-slate-50"
           onClick={clickHandler}
         >
           {sortDescending ? "Sort Date ▼" : "Sort Date ▲"}
