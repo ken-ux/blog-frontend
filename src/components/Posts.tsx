@@ -1,23 +1,10 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import Post from "./Post";
-import { PostProps } from "../types";
-const apiUrl: string = import.meta.env.VITE_API_URL;
+import { Post as PostProps } from "../types";
+import { Posts as PostsProps } from "../types";
 
-function Posts() {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+function Posts({ isLoading, posts, setPosts }: PostsProps) {
   const [sortDescending, setSortDescending] = useState(true);
-
-  useEffect(() => {
-    async function getPosts() {
-      const response = await fetch(apiUrl + "/posts");
-      const data = await response.json();
-      setPosts(data);
-      setIsLoading(false);
-    }
-    getPosts();
-  }, []);
 
   let postList;
   if (isLoading) {
@@ -39,14 +26,16 @@ function Posts() {
   }
 
   const clickHandler = () => {
-    const newPosts = posts;
-    newPosts.sort((a: PostProps, b: PostProps) =>
-      sortDescending
-        ? new Date(a.timestamp).valueOf() - new Date(b.timestamp).valueOf()
-        : new Date(b.timestamp).valueOf() - new Date(a.timestamp).valueOf(),
-    );
-    setSortDescending(!sortDescending);
-    setPosts(newPosts);
+    if (!isLoading) {
+      const newPosts = posts;
+      newPosts.sort((a: PostProps, b: PostProps) =>
+        sortDescending
+          ? new Date(a.timestamp).valueOf() - new Date(b.timestamp).valueOf()
+          : new Date(b.timestamp).valueOf() - new Date(a.timestamp).valueOf(),
+      );
+      setSortDescending(!sortDescending);
+      setPosts(newPosts);
+    }
   };
 
   return (
