@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="my-16 grid grid-cols-8">
-      <Navbar />
+      <Navbar posts={posts} />
       <div className="col-span-6 p-8">
         <div className="mb-8 flex flex-col gap-2">
           <h1 className="text-2xl">Kenny's Blog</h1>

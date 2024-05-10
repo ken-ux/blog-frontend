@@ -20,6 +20,7 @@ function Posts({ isLoading, posts, setPosts }: PostsProps) {
           title={post.title}
           text={post.text}
           timestamp={post.timestamp}
+          id={post._id}
         />
       );
     });
