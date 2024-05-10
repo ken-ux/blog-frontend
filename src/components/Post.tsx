@@ -1,4 +1,4 @@
-import { PostProps } from "../types";
+import { Post as PostProps } from "../types";
 
 function Post({ title, text, timestamp }: PostProps) {
   const date = new Date(timestamp).toLocaleDateString();
