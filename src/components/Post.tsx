@@ -1,11 +1,13 @@
 import { PostProps } from "../types";
 
 function Post({ title, text, timestamp }: PostProps) {
+  const date = new Date(timestamp).toLocaleDateString();
+  
   return (
     <div className="post">
-      <h3 className="text-lg">{title}</h3>
+      <h3 className="text-lg font-semibold">{title}</h3>
       <p>{text}</p>
-      <p>{timestamp}</p>
+      <p>Posted on: {date}</p>
     </div>
   );
 }
