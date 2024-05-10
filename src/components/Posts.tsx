@@ -23,11 +23,10 @@ function Posts() {
   if (isLoading) {
     postList = "Posts loading...";
   } else {
-    console.log(posts);
     postList = posts.map((post: PostProps) => {
-      if (!post.published) {
-        return;
-      }
+      // if (!post.published) {
+      //   return;
+      // }
       return (
         <Post
           key={post._id}
@@ -52,10 +51,17 @@ function Posts() {
 
   return (
     <>
-      <h2 className="text-xl">Posts</h2>
-      <button type="button" onClick={clickHandler}>
-        {sortDescending ? "Sort v" : "Sort ^"}
-      </button>
+      <div className="flex gap-4 items-center mb-2">
+        <h2 className="text-2xl">Posts</h2>
+        <button
+          type="button"
+          className="bg-sky-500 text-slate-50 py-1 px-3 rounded-full text-sm"
+          onClick={clickHandler}
+        >
+          {sortDescending ? "Sort Date ▼" : "Sort Date ▲"}
+        </button>
+      </div>
+
       <div className="flex flex-col gap-4">{postList}</div>
     </>
   );

@@ -6,9 +6,19 @@
   body {
     @apply max-w-screen-xl;
     @apply m-auto;
+    @apply bg-sky-200;
   }
 
   #root > div > * {
     border: 1px solid red;
+  }
+}
+
+@layer components {
+  .post {
+    /* border: 1px solid red; */
+    @apply bg-blue-50;
+    @apply shadow-md;
+    @apply p-4;
   }
 }
