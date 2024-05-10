@@ -45,10 +45,10 @@ function Posts({ isLoading, posts, setPosts }: PostsProps) {
         <h2 className="text-2xl">Posts</h2>
         <button
           type="button"
-          className="rounded-full bg-sky-500 px-3 py-1 text-sm text-slate-50"
+          className="rounded-full bg-sky-600 px-3 py-1 text-sm text-slate-50"
           onClick={clickHandler}
         >
-          {sortDescending ? "Sort Date ▼" : "Sort Date ▲"}
+          {sortDescending ? "Latest First ▼" : "Earliest First ▲"}
         </button>
       </div>
 
