@@ -15,7 +15,7 @@ function Navbar({ posts }: NavbarProps) {
 
   return (
     <nav className="col-span-2 col-start-7 row-start-1 flex flex-col gap-2 rounded-lg border p-8 text-slate-50">
-      <h1 className="text-xl">Jump to Post</h1>
+      <h1 className="text-xl font-semibold">Jump to Post</h1>
       <ul className="list-inside">{postList}</ul>
     </nav>
   );

@@ -24,7 +24,7 @@ function App() {
       <Navbar posts={posts} />
       <div className="col-span-6 p-8">
         <div className="mb-8 flex flex-col gap-2">
-          <h1 className="text-2xl">Kenny's Blog</h1>
+          <h1 className="text-2xl font-semibold">Kenny's Blog</h1>
           <p>Hello, here's some posts served through my blog API!</p>
         </div>
         <Posts isLoading={isLoading} posts={posts} setPosts={setPosts} />

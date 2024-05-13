@@ -42,7 +42,7 @@ function Posts({ isLoading, posts, setPosts }: PostsProps) {
   return (
     <>
       <div className="mb-2 flex items-center gap-4">
-        <h2 className="text-2xl">Posts</h2>
+        <h2 className="text-2xl font-semibold">Posts</h2>
         <button
           type="button"
           className="rounded-full bg-sky-600 px-3 py-1 text-sm text-slate-50"
