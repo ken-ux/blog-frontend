@@ -1,3 +1,10 @@
+export interface Comment {
+  username: string;
+  text: string;
+  timestamp: string;
+  _id: string;
+}
+
 export interface Post {
   title: string;
   text: string;
