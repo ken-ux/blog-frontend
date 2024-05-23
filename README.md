@@ -4,6 +4,8 @@ This is a blog website built with React, TypeScript, and Tailwind CSS. It consum
 
 Refer to [blog-api](https://github.com/ken-ux/blog-api) for the backend and [blog-admin](https://github.com/ken-ux/blog-admin) for the administrative interface!
 
+Live version of this website can be found here: https://blog-frontend-ken.netlify.app/
+
 ## Lessons Learned
 
 - Testing locally with backend before running API requests through a production server.
