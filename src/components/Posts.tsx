@@ -11,9 +11,9 @@ function Posts({ isLoading, posts, setPosts }: PostsProps) {
     postList = "Posts loading...";
   } else {
     postList = posts.map((post: PostProps) => {
-      // if (!post.published) {
-      //   return;
-      // }
+      if (!post.published) {
+        return;
+      }
       return (
         <Post
           key={post._id}
