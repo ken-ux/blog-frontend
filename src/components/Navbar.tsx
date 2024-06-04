@@ -3,6 +3,9 @@ import { Post as PostProps } from "../types";
 
 function Navbar({ posts }: NavbarProps) {
   const postList = posts.map((post: PostProps) => {
+    if (!post.published) {
+      return;
+    }
     return (
       <li
         key={post._id}
