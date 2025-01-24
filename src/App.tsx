@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Posts from "./components/Posts";
 import { Post as PostProps } from "./types";
@@ -22,7 +21,7 @@ function App() {
   return (
     <div className="my-16 grid grid-cols-8">
       <Navbar posts={posts} />
-      <div className="col-span-6 p-8">
+      <div className="col-span-8 p-8 md:col-span-6">
         <div className="mb-8 flex flex-col gap-2">
           <h1 className="text-2xl font-semibold">Kenny's Blog</h1>
           <p>Hello, here's some posts served through my blog API!</p>
