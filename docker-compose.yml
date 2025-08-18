@@ -1,0 +1,8 @@
+services:
+  app:
+    image: blog-frontend
+    build:
+      context: .
+    ports:
+      - 4173:4173
+    container_name: blog-frontend
