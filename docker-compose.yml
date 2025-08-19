@@ -6,3 +6,5 @@ services:
     ports:
       - 4173:4173
     container_name: blog-frontend
+    environment:
+      VITE_API_URL: http://localhost:3000
