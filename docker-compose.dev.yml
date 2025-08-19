@@ -1,0 +1,14 @@
+services:
+  app:
+    image: blog-frontend-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - 5173:5173
+    container_name: blog-frontend-dev
+    volumes:
+      - .:/usr/src/app # Mount local source into container
+      - /usr/src/app/node_modules # Prevent overwriting node_modules
+    environment:
+      VITE_API_URL: http://localhost:3000
